@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="th">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#f4f6f9">
+ <title>TOR — Trace · Open · Reveal</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@500;600;700&display=swap">
+ <link rel="stylesheet" href="assets/css/tor.css?v=10">
+</head>
+<body data-mode="home">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+ <symbol id="i-graph" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="17" cy="17" r="2"/><path d="M8 16.5 16 7.5M8.5 18h6.5"/></symbol>
+ <symbol id="i-project" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+ <symbol id="i-company" viewBox="0 0 24 24"><path d="M4 21V7l6-3v17M10 21V9h10v12M3 21h18M14 13h2M14 17h2"/></symbol>
+ <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></symbol>
+ <symbol id="i-agency" viewBox="0 0 24 24"><path d="M3 9 12 4l9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+ <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+ <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+ <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><circle cx="12" cy="12" r="2.5"/></symbol>
+ <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+ <symbol id="i-export" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 10h3V7M16 14h-3v3"/></symbol>
+ <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+ <symbol id="i-expand" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></symbol>
+ <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></symbol>
+ <symbol id="i-review" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+ <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 9.5V20h12V9.5"/></symbol>
+ <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4.2 4.3-6.5 8-6.5s6.8 2.3 8 6.5"/></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.9-3.6 3.5-5.5 6.5-5.5s5.6 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.8 3 2.5 3.5 5.2"/></symbol>
+ <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14.5 8.5l2 2"/></symbol>
+ <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></symbol>
+ <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+ <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9s-1.3 6.2-3.8 9c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z"/></symbol>
+ <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></symbol>
+ <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7.5V19l-4 1v-7.5z"/></symbol>
+ <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+ <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+ <symbol id="i-sidebar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 10l-2 2 2 2"/></symbol>
+ <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+</svg>
+
+<div class="rail-scrim" id="rail-scrim" hidden></div>
+<aside class="rail" id="rail" aria-label="เมนูหลัก">
+ <div class="rail-head">
+  <a class="brand" href="#" data-go="home" aria-label="หน้าแรก TOR">
+   <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 24 16 9l8 15" /><circle cx="8" cy="24" r="3.4"/><circle cx="16" cy="9" r="3.4"/><circle cx="24" cy="24" r="3.4"/></svg></span>
+   <span class="brand-text">TOR<small>Trace · Open · Reveal</small></span>
+  </a>
+  <button type="button" class="rail-toggle" id="rail-toggle" aria-controls="rail" aria-expanded="true" title="ย่อแถบเมนู"><svg><use href="#i-sidebar"/></svg></button>
+ </div>
+ <button class="rail-search" type="button" data-go="search"><svg><use href="#i-search"/></svg><span>ค้นหา…</span><kbd>/</kbd></button>
+ <nav class="rail-nav">
+  <button type="button" data-go="graph" class="nav-item"><svg><use href="#i-graph"/></svg>แผนผังความสัมพันธ์</button>
+  <button type="button" data-go="dashboard" class="nav-item"><svg><use href="#i-chart"/></svg>ภาพรวมและตัวชี้วัด</button>
+  <button type="button" data-go="cases" class="nav-item"><svg><use href="#i-folder"/></svg>เรื่องที่บันทึก<b id="cases-badge" class="badge" hidden></b></button>
+  <span class="rail-label">เรียกดูข้อมูล</span>
+  <button type="button" data-browse="projects" class="nav-item"><svg><use href="#i-project"/></svg>โครงการ</button>
+  <button type="button" data-browse="companies" class="nav-item"><svg><use href="#i-company"/></svg>นิติบุคคล</button>
+  <button type="button" data-browse="people" class="nav-item"><svg><use href="#i-person"/></svg>ผู้เกี่ยวข้อง</button>
+  <button type="button" data-browse="agencies" class="nav-item"><svg><use href="#i-agency"/></svg>หน่วยงาน</button>
+  <span class="rail-label">ตรวจทาน</span>
+  <button type="button" data-go="review" class="nav-item"><svg><use href="#i-review"/></svg>คิวตรวจทาน<b id="review-badge" class="badge" hidden></b></button>
+  <button type="button" data-browse="quality" class="nav-item"><svg><use href="#i-warn"/></svg>แถวข้อมูลที่ถูกกักไว้</button>
+  <button type="button" data-go="public" class="nav-item"><svg><use href="#i-globe"/></svg>หน้าสาธารณะ</button>
+  <span class="rail-label" id="admin-label" hidden>ผู้ดูแลระบบ</span>
+  <button type="button" data-go="admin" class="nav-item" id="nav-admin" hidden><svg><use href="#i-users"/></svg>ผู้ใช้และบทบาท</button>
+ </nav>
+ <div class="rail-foot">
+  <div class="rail-card">
+   <svg class="rail-card-art" viewBox="0 0 160 60" aria-hidden="true"><path d="M0 50 C40 10, 90 0, 160 30"/><circle cx="30" cy="30" r="3"/><circle cx="96" cy="14" r="3"/><circle cx="140" cy="24" r="3"/></svg>
+   <strong>ข้อมูลในเครื่อง</strong>
+   <p id="rail-data">e-GP 2565–2569 · ทะเบียน DBD ก.ย. 2569</p>
+   <span id="api-state" class="api-state">กำลังเชื่อมต่อ…</span>
+  </div>
+  <div class="me" id="me" hidden>
+   <span class="me-avatar" id="me-avatar">?</span>
+   <span class="me-text"><b id="me-name">—</b><small id="me-role">—</small></span>
+   <span class="me-actions"><button type="button" id="me-password"><svg><use href="#i-key"/></svg>รหัสผ่าน</button><button type="button" id="me-logout"><svg><use href="#i-logout"/></svg>ออกจากระบบ</button></span>
+  </div>
+ </div>
+</aside>
+
+<div class="frame">
+ <header class="pub-bar" id="pub-bar" hidden>
+  <a class="brand" href="#public" aria-label="TOR หน้าสาธารณะ">
+   <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 24 16 9l8 15" /><circle cx="8" cy="24" r="3.4"/><circle cx="16" cy="9" r="3.4"/><circle cx="24" cy="24" r="3.4"/></svg></span>
+   <span class="brand-text">TOR<small>เรื่องที่ผ่านการตรวจทานแล้ว</small></span>
+  </a>
+  <nav><a href="#public" class="pub-link">เรื่องที่เผยแพร่</a><a href="#about" class="pub-link">วิธีการและข้อจำกัด</a></nav>
+  <button type="button" class="btn primary" id="pub-signin">เข้าสู่ระบบ</button>
+ </header>
+ <div class="notice" role="note"><svg><use href="#i-warn"/></svg><span>ความเชื่อมโยงในแผนผังเป็น<b>จุดเริ่มต้นของการตรวจสอบหลักฐาน</b> ไม่ใช่ข้อสรุปว่าบุคคลหรือบริษัทใดกระทำผิด — ตรวจแหล่งที่มาก่อนนำไปใช้ทุกครั้ง</span></div>
+
+ <!-- HOME -->
+ <section class="home" id="home" aria-labelledby="home-title">
+  <div class="home-top"><button type="button" class="home-menu" id="rail-open" aria-controls="rail" aria-expanded="false"><svg><use href="#i-menu"/></svg>เมนู</button></div>
+  <canvas id="home-bg" aria-hidden="true"></canvas>
+  <div class="home-inner">
+   <p class="eyebrow">ระบบตรวจสอบความโปร่งใสการจัดซื้อจัดจ้างภาครัฐ</p>
+   <h1 id="home-title">ตามรอยเงินแผ่นดิน<br>เห็นความสัมพันธ์ที่ตรวจสอบได้</h1>
+   <form class="hero-search" id="hero-form" role="search">
+    <div class="hero-field">
+     <svg><use href="#i-search"/></svg>
+     <input id="hero-q" name="q" autocomplete="off" placeholder="ค้นหาชื่อโครงการ บริษัท บุคคล หน่วยงาน หรือรหัสโครงการ 11 หลัก" aria-label="ค้นหา">
+     <button class="btn primary" type="submit">ค้นหา</button>
+    </div>
+   </form>
+   <div class="hero-hint">ลองค้น: <button type="button" data-try="68099218030">68099218030</button><button type="button" data-try="0102504000650">0102504000650</button><button type="button" data-try="รถโดยสาร">รถโดยสาร</button><button type="button" data-try="ปวิตรปก">ปวิตรปก</button></div>
+  </div>
+  <div class="home-lower">
+   <h2 class="section-kicker">เริ่มสำรวจจากเรื่องตัวอย่าง</h2>
+   <div class="starters" id="starters"></div>
+   <div class="stats" id="stats" aria-label="ขนาดข้อมูล"></div>
+   <div class="pillars">
+    <div><span class="pill-ic"><svg><use href="#i-search"/></svg></span><h3>Trace</h3><p>ค้นจากโครงการ บริษัท บุคคล หรือหน่วยงาน แล้วตามเส้นทางเงินข้ามชุดข้อมูล e-GP และ DBD</p></div>
+    <div><span class="pill-ic"><svg><use href="#i-graph"/></svg></span><h3>Open</h3><p>เปิดแผนผังความสัมพันธ์หลายชั้น ขยายทีละจุด และดูทุกเส้นพร้อมระดับความเชื่อมั่น</p></div>
+    <div><span class="pill-ic"><svg><use href="#i-doc"/></svg></span><h3>Reveal</h3><p>ทุกเส้นชี้กลับไปยังไฟล์และแถวต้นทาง ข้อสังเกตอัตโนมัติแสดงพร้อมเหตุผลและข้อจำกัด</p></div>
+    <div><span class="pill-ic"><svg><use href="#i-review"/></svg></span><h3>Review</h3><p>ผู้ตรวจทานยืนยันหรือปฏิเสธการจับคู่ที่ไม่แน่นอน ก่อนนำผลไปเผยแพร่</p></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- DASHBOARD -->
+ <section class="page" id="dashboard" hidden aria-labelledby="dash-title"></section>
+
+ <!-- PUBLIC PORTAL: list of published cases -->
+ <section class="page" id="public-home" hidden aria-labelledby="pub-title"></section>
+
+ <!-- METHODOLOGY / DISCLAIMER -->
+ <section class="page" id="about" hidden aria-labelledby="about-title">
+  <div class="page-inner prose">
+   <span class="eyebrow">Methodology</span>
+   <h1 id="about-title">วิธีการ แหล่งข้อมูล และข้อจำกัด</h1>
+   <p class="lead">TOR เชื่อมข้อมูลจัดซื้อจัดจ้างภาครัฐกับข้อมูลทะเบียนนิติบุคคล เพื่อให้เห็นความสัมพันธ์ที่ควรตรวจสอบต่อ <b>ความเชื่อมโยงและข้อสังเกตไม่ใช่ข้อสรุปว่าบุคคล บริษัท หรือหน่วยงานใดกระทำผิด</b></p>
+   <h2>แหล่งข้อมูล</h2>
+   <ul>
+    <li><b>สัญญาและผู้เสนอราคา</b> — ชุดข้อมูลระบบ e-GP ที่เผยแพร่บน Data.go.th ปีงบประมาณ 2565–2569 (ข้อมูลผู้เสนอราคามีเฉพาะโครงการปี 2568–2569 จึงใช้คำนวณตัวชี้วัดผู้เสนอราคาได้เฉพาะสองปีนี้)</li>
+    <li><b>ทะเบียนนิติบุคคล</b> — ข้อมูลกรมพัฒนาธุรกิจการค้า (DBD) ที่เก็บ ณ วันที่ระบุในแต่ละรายการ สะท้อนกรรมการและผู้ถือหุ้น ณ วันนั้น ไม่ยืนยันบทบาทย้อนหลัง ณ วันประมูล</li>
+    <li id="about-asof"></li>
+   </ul>
+   <h2>การเชื่อมข้อมูล</h2>
+   <ul>
+    <li><b>เชื่อมั่นสูง</b> — ใช้ตัวระบุจากต้นทาง เช่น เลขประจำตัวนิติบุคคล 13 หลัก หรือรหัสโครงการ 11 หลัก</li>
+    <li><b>เชื่อมั่นปานกลาง/ต่ำ</b> — จับคู่ด้วยชื่อ หรือจัดกลุ่มหน่วยงานด้วยชื่อที่ตรงกัน ต้องผ่านผู้ตรวจทานก่อนเผยแพร่</li>
+    <li>บุคคลที่ไม่มีตัวระบุจะไม่ถูกรวมข้ามบริษัทด้วยชื่ออย่างเดียว เลขประจำตัวบุคคลถูกแปลงเป็นค่าแฮช ไม่แสดงเลขจริง</li>
+   </ul>
+   <h2>การตรวจทานก่อนเผยแพร่</h2>
+   <p>เรื่องในหน้าสาธารณะสร้างใหม่จากฐานข้อมูลโดยเซิร์ฟเวอร์ แสดงเฉพาะเส้นที่เชื่อมด้วยตัวระบุ หรือเส้นที่ผู้ตรวจทานยืนยันแล้ว เส้นที่ยังไม่ตรวจหรือถูกปฏิเสธจะไม่แสดง ทุกเส้นมีลิงก์ไปยังแถวข้อมูลต้นทางให้ดาวน์โหลดตรวจเองได้</p>
+   <h2>ตัวชี้วัดความเสี่ยง</h2>
+   <p>ตัวชี้วัด เช่น การกระจุกตัวของผู้ได้รับสัญญา สัดส่วนวิธีเฉพาะเจาะจง โครงการที่มีผู้เสนอราคารายเดียว และคู่ผู้เสนอราคาที่พบกันบ่อย อ้างอิงแนวทาง Red Flags ของ Open Contracting Partnership และ OECD เป็นสัญญาณให้ตรวจสอบเพิ่ม ไม่ใช่หลักฐานการทุจริต ค่าที่คำนวณจากหน่วยงานที่มีสัญญาน้อยกว่า 50 รายการไม่ถูกจัดอันดับ</p>
+   <h2>ข้อมูลส่วนบุคคล</h2>
+   <p>ชื่อกรรมการและผู้ถือหุ้นเป็นข้อมูลที่เผยแพร่ในทะเบียนนิติบุคคล ระบบใช้เพื่อความโปร่งใสในการใช้งบประมาณแผ่นดินเท่านั้น หากพบข้อมูลไม่ถูกต้องหรือต้องการขอแก้ไข กรุณาใช้ปุ่ม <b>แจ้งแก้ไขข้อมูล</b> ในแต่ละเรื่อง ผู้ตรวจทานจะพิจารณาและบันทึกผลทุกครั้ง</p>
+  </div>
+ </section>
+
+ <!-- ADMIN -->
+ <section class="admin" id="admin" hidden aria-labelledby="admin-title"></section>
+
+ <!-- WORKSPACE -->
+ <section class="workspace" id="workspace" hidden>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+  <section class="stage" id="stage" aria-label="แผนผังความสัมพันธ์">
+   <div class="stage-top">
+    <div class="stage-title"><span class="eyebrow" id="stage-kicker">แผนผังความสัมพันธ์</span><h2 id="stage-heading">—</h2></div>
+    <div class="stage-tools">
+     <div class="seg" role="group" aria-label="รูปแบบการจัดวาง" id="layout-seg"><button type="button" data-layout="force" aria-pressed="true">เครือข่าย</button><button type="button" data-layout="timeline" aria-pressed="false">ตามปีงบประมาณ</button></div>
+     <details class="pop" id="filter-pop">
+      <summary class="btn"><svg><use href="#i-filter"/></svg>ตัวกรอง<b class="badge" id="filter-badge" hidden>•</b></summary>
+      <div class="pop-body">
+       <label class="chk"><input type="checkbox" id="f-verified">แสดงเฉพาะเส้นที่ยืนยันแล้ว</label>
+       <div class="pop-row"><label class="sel">ปีงบ ตั้งแต่<select id="f-year-from"><option value="">ทั้งหมด</option><option>2565</option><option>2566</option><option>2567</option><option>2568</option><option>2569</option></select></label>
+       <label class="sel">ถึง<select id="f-year-to"><option value="">ทั้งหมด</option><option>2565</option><option>2566</option><option>2567</option><option>2568</option><option>2569</option></select></label></div>
+       <p class="muted">ปีใช้กับโครงการและรายการพิจารณา · จุดที่ไม่มีเส้นเหลืออยู่จะถูกซ่อน</p>
+       <button type="button" class="btn sm" id="f-reset">ล้างตัวกรอง</button>
+      </div>
+     </details>
+     <label class="sel internal-only">ความลึก<select id="depth"><option value="1">1 ชั้น</option><option value="2" selected>2 ชั้น</option><option value="3">3 ชั้น</option></select></label>
+     <label class="sel internal-only">กิ่งต่อจุด<select id="branch"><option>6</option><option selected>8</option><option>16</option><option>32</option></select></label>
+     <button class="btn" type="button" id="open-export"><svg><use href="#i-export"/></svg>ส่งออกภาพ</button>
+     <button class="btn internal-only" type="button" id="save-case"><svg><use href="#i-folder"/></svg>บันทึกเรื่อง</button>
+     <button class="btn ghost internal-only" type="button" id="export-json" title="ส่งออกข้อมูลกราฟพร้อมหลักฐานและผลตรวจทาน"><svg><use href="#i-download"/></svg>JSON</button>
+    </div>
+   </div>
+   <div class="canvas" id="canvas">
+    <svg id="graph" role="img" aria-label="แผนผังความสัมพันธ์ ชี้เพื่อเน้นเส้น คลิกเพื่อดูรายละเอียด">
+     <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 9 5 0 9z" fill="var(--accent)"/></marker>
+     </defs>
+     <g id="axis-layer"></g>
+     <g id="viewport"><g id="edge-layer"></g><g id="node-layer"></g><g id="label-layer"></g></g>
+    </svg>
+    <div class="legend" id="legend"></div>
+    <div class="edge-key"><span class="k-solid"></span>ยืนยันจากตัวระบุ <span class="k-dash"></span>ต้องตรวจทาน · ลูกศรชี้ทิศของความสัมพันธ์</div>
+    <div class="zoom" aria-label="ซูม">
+     <button type="button" id="z-center" title="กลับไปจุดศูนย์กลาง"><svg><use href="#i-target"/></svg></button>
+     <button type="button" id="z-in" title="ขยาย"><svg><use href="#i-plus"/></svg></button>
+     <button type="button" id="z-out" title="ย่อ"><svg><use href="#i-minus"/></svg></button>
+     <button type="button" id="z-fit" title="แสดงทั้งหมด"><svg><use href="#i-fit"/></svg></button>
+    </div>
+    <div class="coverage" id="coverage"></div>
+    <div class="loading" id="loading" hidden><span class="spinner"></span><span id="loading-text">กำลังโหลดแผนผัง…</span></div>
+    <div class="empty-stage" id="empty-stage" hidden>
+     <svg><use href="#i-graph"/></svg>
+     <h3>ยังไม่ได้เลือกจุดเริ่มต้น</h3>
+     <p>ค้นหาหรือเลือกรายการจากแผงด้านซ้าย แล้วกด “เปิดแผนผัง”</p>
+    </div>
+   </div>
+  </section>
+ </section>
+</div>
+
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+<section class="modal" id="export-modal" hidden role="dialog" aria-modal="true" aria-labelledby="export-title">
+ <div class="modal-bar">
+  <div><span class="eyebrow">Export figure</span><h2 id="export-title">ส่งออกภาพแผนผัง</h2></div>
+  <div class="modal-actions">
+   <label class="sel">สัดส่วน<select id="fig-ratio"><option value="16:9">16 : 9</option><option value="4:3">4 : 3</option><option value="1:1">1 : 1</option><option value="3:4">3 : 4 (A4)</option></select></label>
+   <label class="chk"><input type="checkbox" id="fig-labels" checked>ชื่อทุกจุด</label>
+   <label class="chk"><input type="checkbox" id="fig-legend" checked>คำอธิบายสัญลักษณ์</label>
+   <button class="btn primary" type="button" id="dl-png"><svg><use href="#i-download"/></svg>PNG</button>
+   <button class="btn" type="button" id="dl-svg"><svg><use href="#i-download"/></svg>SVG</button>
+   <button class="icon-btn" type="button" id="export-close" aria-label="ปิด"><svg><use href="#i-x"/></svg></button>
+  </div>
+ </div>
+ <div class="modal-body"><div class="figure" id="figure"></div></div>
+ <p class="modal-hint">วางเมาส์บนจุดในภาพเพื่อดูรายละเอียด · ภาพใช้ตำแหน่งจากแผนผังปัจจุบันและแนบแหล่งข้อมูลไว้ที่มุมภาพ</p>
+</section>
+
+<!-- SIGN IN / REGISTER -->
+<section class="auth" id="auth" hidden aria-labelledby="auth-title">
+ <div class="auth-side">
+  <canvas id="auth-bg" aria-hidden="true"></canvas>
+  <a class="brand" href="#" aria-label="TOR">
+   <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 24 16 9l8 15" /><circle cx="8" cy="24" r="3.4"/><circle cx="16" cy="9" r="3.4"/><circle cx="24" cy="24" r="3.4"/></svg></span>
+   <span class="brand-text">TOR<small>Trace · Open · Reveal</small></span>
+  </a>
+  <div class="auth-copy">
+   <p class="eyebrow">ระบบตรวจสอบความโปร่งใสการจัดซื้อจัดจ้างภาครัฐ</p>
+   <h1>ตามรอยเงินแผ่นดิน<br>เห็นความสัมพันธ์ที่ตรวจสอบได้</h1>
+   <p>เชื่อมข้อมูลสัญญา e-GP ผู้เสนอราคา และทะเบียนนิติบุคคล DBD เป็นแผนผังความสัมพันธ์ ทุกเส้นย้อนกลับไปยังไฟล์ต้นทางได้</p>
+   <div class="auth-stats" id="auth-stats"></div>
+  </div>
+ </div>
+ <div class="auth-main">
+  <div class="auth-card">
+   <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-auth="login" aria-selected="true">เข้าสู่ระบบ</button>
+    <button type="button" role="tab" data-auth="register" aria-selected="false">สมัครสมาชิก</button>
+   </div>
+   <h2 id="auth-title">ยินดีต้อนรับกลับ</h2>
+   <p class="muted" id="auth-sub">เข้าสู่ระบบเพื่อสำรวจข้อมูลและแผนผังความสัมพันธ์</p>
+   <form id="auth-form" novalidate>
+    <label class="field" id="f-name" hidden>ชื่อที่แสดง<input name="name" autocomplete="name" maxlength="80" placeholder="เช่น สมชาย ใจดี"></label>
+    <label class="field">ชื่อผู้ใช้<input name="username" autocomplete="username" maxlength="32" required placeholder="a-z 0-9 _ . -" autocapitalize="off" spellcheck="false"></label>
+    <label class="field">รหัสผ่าน<input name="password" type="password" autocomplete="current-password" maxlength="128" required placeholder="อย่างน้อย 8 ตัวอักษร"></label>
+    <label class="field" id="f-confirm" hidden>ยืนยันรหัสผ่าน<input name="confirm" type="password" autocomplete="new-password" maxlength="128"></label>
+    <div class="err" id="auth-err" hidden></div>
+    <button class="btn primary block" type="submit" id="auth-submit">เข้าสู่ระบบ</button>
+   </form>
+   <a class="btn block pub-entry" href="#public"><svg><use href="#i-globe"/></svg>ดูเรื่องที่ตรวจทานและเผยแพร่แล้ว — ไม่ต้องเข้าสู่ระบบ</a>
+   <p class="auth-note"><svg><use href="#i-lock"/></svg><span>บัญชีที่สมัครใหม่อยู่ในบทบาท <b>ผู้ใช้งาน</b> — ดูข้อมูล รายละเอียด แผนผัง และหลักฐานได้ทั้งหมด แต่การยืนยันข้อมูลก่อนเผยแพร่ทำได้เฉพาะผู้ดูแลหรือบทบาทที่ได้รับสิทธิ์</span></p>
+  </div>
+ </div>
+</section>
+
+<section class="modal-sm" id="pw-modal" hidden role="dialog" aria-modal="true" aria-labelledby="pw-title">
+ <form class="auth-card" id="pw-form">
+  <h2 id="pw-title">เปลี่ยนรหัสผ่าน</h2>
+  <label class="field">รหัสผ่านปัจจุบัน<input name="current" type="password" autocomplete="current-password" required></label>
+  <label class="field">รหัสผ่านใหม่<input name="new" type="password" autocomplete="new-password" minlength="8" required></label>
+  <label class="field">ยืนยันรหัสผ่านใหม่<input name="confirm" type="password" autocomplete="new-password" minlength="8" required></label>
+  <div class="err" id="pw-err" hidden></div>
+  <div class="row-end"><button type="button" class="btn" id="pw-cancel">ยกเลิก</button><button type="submit" class="btn primary">บันทึก</button></div>
+ </form>
+</section>
+
+<section class="modal-sm" id="case-modal" hidden role="dialog" aria-modal="true" aria-labelledby="case-title">
+ <form class="auth-card" id="case-form">
+  <h2 id="case-title">บันทึกเป็นเรื่อง</h2>
+  <p class="muted" id="case-sub">บันทึกจุดเริ่มต้น ความลึก และจุดที่ขยายไว้ เพื่อเปิดดูภายหลังหรือส่งให้ผู้ตรวจทานพิจารณาเผยแพร่</p>
+  <label class="field">ชื่อเรื่อง<input name="title" required minlength="3" maxlength="160"></label>
+  <label class="field">คำอธิบาย / ข้อสังเกต<textarea name="summary" rows="5" maxlength="4000" placeholder="อธิบายว่าพบอะไร และควรตรวจอะไรต่อ"></textarea></label>
+  <div class="err" id="case-err" hidden></div>
+  <div class="row-end"><button type="button" class="btn" id="case-cancel">ยกเลิก</button><button type="submit" class="btn primary">บันทึก</button></div>
+ </form>
+</section>
+
+<section class="modal-sm" id="corr-modal" hidden role="dialog" aria-modal="true" aria-labelledby="corr-title">
+ <form class="auth-card" id="corr-form">
+  <h2 id="corr-title">แจ้งแก้ไขข้อมูล</h2>
+  <p class="muted">ผู้ตรวจทานจะพิจารณาคำขอและบันทึกผลทุกครั้ง ข้อมูลติดต่อใช้เพื่อตอบกลับเท่านั้น</p>
+  <label class="field">ชื่อผู้แจ้ง<input name="name" required maxlength="120" autocomplete="name"></label>
+  <label class="field">อีเมลหรือเบอร์โทร<input name="contact" required maxlength="200" autocomplete="email"></label>
+  <label class="field">รายการที่ต้องการแก้ไข<input name="item" maxlength="500"></label>
+  <label class="field">รายละเอียด<textarea name="message" rows="5" required minlength="10" maxlength="4000" placeholder="ข้อมูลใดไม่ถูกต้อง และข้อมูลที่ถูกต้องคืออะไร (แนบแหล่งอ้างอิงถ้ามี)"></textarea></label>
+  <div class="err" id="corr-err" hidden></div>
+  <div class="row-end"><button type="button" class="btn" id="corr-cancel">ยกเลิก</button><button type="submit" class="btn primary">ส่งคำขอ</button></div>
+ </form>
+</section>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="assets/data/sample-projects.js"></script>
+<script src="assets/js/tor.js?v=10"></script>
+</body>
+</html>

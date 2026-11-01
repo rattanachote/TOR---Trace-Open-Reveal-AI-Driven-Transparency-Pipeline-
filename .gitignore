@@ -1,0 +1,20 @@
+# Secrets and local state: never commit these
+.env
+backups/
+logs/
+
+# Databases and dumps (the procurement database lives outside this folder and is far too large for GitHub)
+*.sqlite3
+*.sqlite3-*
+*.dump
+
+# Python
+__pycache__/
+*.pyc
+
+# Screenshots of ACT Ai's site kept for design reference only (third-party content)
+docs/reference/actai/
+
+# Editor and tool folders
+.vscode/
+.claude/

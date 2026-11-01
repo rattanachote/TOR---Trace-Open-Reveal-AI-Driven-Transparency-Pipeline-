@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="th">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#f4f5f7"><title>TOR — สำรวจข้อมูลจัดซื้อจัดจ้าง</title>
+ <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="redesign.css"><link rel="stylesheet" href="refinements.css?v=18"><link rel="stylesheet" href="system-v19.css?v=35"><link rel="stylesheet" href="litmaps.css?v=5">
+</head>
+<body>
+ <aside class="sidebar">
+  <a class="brand" href="index.html"><span class="brand-mark">T</span><span>TOR<span class="brand-sub">TRACE · OPEN · REVEAL</span></span></a>
+  <div class="workspace">พื้นที่สำรวจข้อมูล <span>LOCAL</span></div>
+  <nav aria-label="เมนูหลัก">
+   <button class="nav active" data-view="graph"><span>⌘</span>สำรวจความสัมพันธ์</button>
+   <button class="nav" data-view="projects"><span>▤</span>โครงการจัดซื้อจัดจ้าง</button>
+   <button class="nav" data-view="companies"><span>▦</span>นิติบุคคลในทะเบียน</button>
+   <button class="nav" data-view="people"><span>♙</span>ผู้เกี่ยวข้องตามทะเบียน</button>
+   <button class="nav" data-view="quality"><span>◇</span>ประเด็นที่ต้องตรวจสอบ</button>
+  </nav>
+  <div class="sidebar-bottom"><span class="status-dot"></span> ข้อมูลจัดซื้อจัดจ้าง 2565–2569<p>ค้นหาและสำรวจความสัมพันธ์ในเครื่อง</p><small>ความเชื่อมโยงเป็นจุดเริ่มต้น<br>ของการตรวจสอบหลักฐาน</small></div>
+ </aside>
+ <div class="shell">
+  <header>
+   <div class="page-heading"><span class="eyebrow">PUBLIC PROCUREMENT EXPLORER</span><h1 id="page-title">สำรวจความสัมพันธ์</h1></div>
+   <div class="header-actions">
+    <label class="search"><span aria-hidden="true">⌕</span><input id="search" placeholder="ค้นหาโครงการ บริษัท บุคคล หรือหน่วยงาน" aria-label="ค้นหาโครงการ บริษัท บุคคล หรือหน่วยงาน"><kbd>/</kbd></label>
+    <button id="figure-export" class="button figure-open" type="button"><span>⤢</span> ส่งออกภาพกราฟ</button>
+    <button id="export" class="button export-data" type="button"><span>↓</span> ส่งออกข้อมูล</button>
+   </div>
+  </header>
+  <main>
+   <div class="intro"><div><span class="live-dot"></span> จากข้อมูลจัดซื้อจัดจ้าง สู่ความสัมพันธ์ที่ตรวจสอบได้</div><span>ข้อมูลทะเบียน: กันยายน 2569</span></div>
+   <section id="workspace-layout" class="workspace-layout" aria-label="พื้นที่สำรวจข้อมูล">
+    <aside id="results-pane" class="results-pane" aria-label="ผลการค้นหา">
+     <div class="results-pane-header">
+      <div class="results-title-row"><div><span class="eyebrow">LOCAL DATASET</span><h2 id="results-title">สำรวจข้อมูล</h2></div><span id="result-count" class="result-count">—</span></div>
+      <p id="results-caption">เลือกข้อมูลเพื่อดูเส้นเชื่อมและหลักฐานต้นทาง</p>
+      <div class="results-actions"><button id="results-filter-toggle" class="light-action" type="button" aria-expanded="false"><span>▽</span> ตัวกรอง</button><button id="refresh-results" class="light-action" type="button" title="โหลดผลลัพธ์ปัจจุบัน">↻</button></div>
+     </div>
+     <section id="filter-panel" class="filter-panel" hidden aria-label="ตัวกรองผลลัพธ์">
+      <div class="filter-panel-title"><strong>ปรับผลการค้นหา</strong><button id="filter-reset" type="button">ล้างตัวกรอง</button></div>
+      <label id="filter-year-wrap">ปีข้อมูล<select id="filter-year"><option value="">ทุกปี</option><option>2569</option><option>2568</option><option>2567</option><option>2566</option><option>2565</option></select></label>
+      <label id="filter-company-wrap" hidden class="check-filter"><input id="filter-company-contracts" type="checkbox">แสดงนิติบุคคลที่มีสัญญา</label>
+      <label id="filter-people-wrap" hidden>ประเภทผู้เกี่ยวข้อง<select id="filter-people-kind"><option value="">ทุกประเภท</option><option value="PersonMention">บุคคล</option><option value="OrganizationMention">นิติบุคคล</option></select></label>
+      <label id="filter-agency-wrap" hidden>จำนวนแถวขั้นต่ำ<select id="filter-agency-min"><option value="0">ไม่กำหนด</option><option value="10">10 แถว</option><option value="100">100 แถว</option><option value="1000">1,000 แถว</option></select></label>
+      <button id="apply-filters" class="apply-filters" type="button">ใช้ตัวกรอง</button>
+     </section>
+     <div id="litmaps-results" class="litmaps-results" aria-live="polite"></div>
+     <div id="results-pagination" class="results-pagination" hidden><span id="page-label"></span><div><button id="page-prev" type="button" disabled>‹</button><button id="page-next" type="button" disabled>›</button></div></div>
+     <section id="entity-inspector" class="entity-inspector" hidden aria-label="รายละเอียดรายการที่เลือก"><div class="inspector-heading"><div><span class="eyebrow">SOURCE DETAILS</span><h2 id="inspector-title">รายละเอียด</h2></div><button id="inspector-close" type="button" aria-label="กลับไปยังผลการค้นหา">×</button></div><div id="detail" class="detail" aria-live="polite"></div></section>
+     <section id="list-view" class="source-list" hidden aria-hidden="true"></section>
+    </aside>
+    <section id="graph-area" class="graph-area" aria-label="พื้นที่แผนผังความสัมพันธ์">
+     <div id="graph-view">
+      <div class="project-picker"><div><span class="eyebrow">เลือกโครงการ</span><h2>เริ่มต้นจากเรื่องที่คุณสนใจ</h2></div><div id="project-tabs" class="project-tabs"></div></div>
+      <div class="explorer"><section class="graph-card">
+       <div class="graph-toolbar"><div class="graph-title"><strong>แผนผังความเชื่อมโยง</strong><span id="graph-count" class="count"></span><span id="duplicate-note" class="duplicate-note" hidden></span><span id="graph-layout-hint" class="layout-hint" hidden></span><span id="unlinked-note" class="unlinked-note" hidden></span></div><div class="graph-toolbar-actions"><div id="layout-switch" class="layout-switch" role="group" aria-label="รูปแบบกราฟ"><button type="button" data-layout="map" aria-pressed="true">เครือข่าย</button><button type="button" data-layout="radial" aria-pressed="false">วงกลม</button><button type="button" data-layout="flow" aria-pressed="false">แยกชั้น</button></div><button id="center-flow" class="filter-button" hidden>จุดตั้งต้น</button><button id="nodes-view-toggle" class="filter-button" hidden>ทุกจุด</button><button id="edge-view-toggle" class="filter-button" hidden>เส้นไขว้</button><button id="filter-toggle-graph" class="filter-button" type="button">ตัวกรองจุด</button><button id="figure-export-inline" class="filter-button" type="button">ส่งออกภาพ</button><button id="filter-toggle" class="filter-button" aria-expanded="false"><span>⚙</span> ตั้งค่า</button></div></div>
+       <div id="filters" class="filters" hidden><label><input type="checkbox" id="show-people" checked>ผู้เกี่ยวข้องตามทะเบียน</label><label><input type="checkbox" id="show-items" checked>รายการพิจารณา</label></div>
+       <div class="legend"><span><i class="dot project"></i>โครงการ</span><span><i class="dot org"></i>นิติบุคคล</span><span><i class="dot person"></i>ผู้เกี่ยวข้อง</span><span><i class="dot agency"></i>หน่วยงาน</span><span><i class="dot item"></i>รายการ</span></div>
+       <div class="canvas-shell"><div class="canvas" id="canvas"><svg id="graph" viewBox="0 0 900 730" role="img" aria-label="กราฟความสัมพันธ์ กดจุดเพื่อเปิดรายละเอียด"><defs><filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".08"/></filter></defs><g id="viewport"></g></svg></div><div class="canvas-note"><span class="solid-key"></span>เส้นเชื่อมจากหลักฐาน <span class="dash"></span>ความสัมพันธ์ที่ควรตรวจเพิ่ม</div><div class="zoom"><button id="zoom-out" aria-label="ย่อ">−</button><span id="zoom-value">100%</span><button id="zoom-in" aria-label="ขยาย">+</button><button id="fit" aria-label="แสดงกราฟทั้งหมด">⌖</button></div></div>
+       <div class="graph-footer"><span>ชี้ที่จุดเพื่อเน้นเส้น · คลิกเพื่อดูรายละเอียดและหลักฐาน</span><span id="project-code"></span></div>
+      </section></div>
+     </div>
+    </section>
+   </section>
+   <section id="figure-modal" class="figure-modal" hidden aria-modal="true" role="dialog" aria-labelledby="figure-title"><div class="figure-toolbar"><div><span class="eyebrow">EXPORT FIGURE</span><h2 id="figure-title">จัดรูปภาพแผนผัง</h2></div><div class="figure-options"><label>สัดส่วน<select id="figure-ratio"><option value="16:9">16:9</option><option value="4:3">4:3</option><option value="1:1">1:1</option></select></label><button id="download-svg" class="button primary-button" type="button">ดาวน์โหลด SVG</button><button id="download-png" class="button primary-button" type="button">ดาวน์โหลด PNG</button><button id="figure-close" class="figure-close" type="button" aria-label="ปิด">×</button></div></div><div id="figure-frame" class="figure-frame"><div id="figure-preview" class="figure-preview"></div><span class="figure-handle handle-bottom" aria-hidden="true"></span><span class="figure-handle handle-right" aria-hidden="true"></span></div><p class="figure-hint">วางเมาส์บนจุดในภาพตัวอย่างเพื่ออ่านชื่อและประเภท · รูปที่ส่งออกจะใช้มุมมองกราฟปัจจุบัน</p></section>
+   <div id="toast" role="status"></div>
+  </main>
+  <footer>TOR / Trace, Open, Reveal <span>สำรวจฐานข้อมูลที่เก็บไว้ในเครื่อง</span></footer>
+ </div>
+ <script src="../assets/data/sample-projects.js"></script><script src="app.js?v=7"></script><script src="full-data.js?v=19"></script><script src="entity-views.js?v=9"></script><script src="redesign.js?v=39"></script><script src="litmaps.js?v=5"></script>
+</body>
+</html>

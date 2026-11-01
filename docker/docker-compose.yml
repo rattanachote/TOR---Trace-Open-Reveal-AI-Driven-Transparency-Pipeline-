@@ -1,0 +1,25 @@
+# Account database for the TOR web app (users, roles, sessions, review decisions, audit log).
+# The procurement data stays in ../output/linked-data/procurement.sqlite3 and is not stored here.
+# Secrets come from ../.env (created by: python backend/server.py --setup).
+# Run from the Web App folder: docker compose -f docker/docker-compose.yml --env-file .env up -d
+name: tor
+services:
+  auth-db:
+    image: postgres:16-alpine
+    container_name: tor-auth-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tor
+      POSTGRES_USER: tor
+      POSTGRES_PASSWORD: ${TOR_PG_PASSWORD:?run "python backend/server.py --setup" first}
+    ports:
+      - "127.0.0.1:${TOR_PG_PORT:-5433}:5432"
+    volumes:
+      - tor-auth-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tor -d tor"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+volumes:
+  tor-auth-data:
